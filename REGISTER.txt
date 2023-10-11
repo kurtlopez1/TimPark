@@ -1,0 +1,117 @@
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, TextInput, Button, Image, TouchableOpacity } from 'react-native';
+
+export default function App({navigation}) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleUsernameChange = (text) => {
+    setUsername(text);
+  };
+
+  const handlePasswordChange = (text) => {
+    setPassword(text);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Image source={require('/assets/circ.png')} style={styles.headerImage} />
+      <View style={styles.inputContainer}>
+        <View style={styles.inputWrapper}>
+          <TextInput
+            style={styles.input}
+            placeholder="First / Last Name"
+            onChangeText={handleUsernameChange}
+            value={username}
+          />
+          <Text style={styles.labelText}>Fullname</Text>
+        </View>
+
+        <View>
+        <TextInput
+        
+          style={styles.input}
+          placeholder="@gmail.com"
+          secureTextEntry={true}
+          onChangeText={handlePasswordChange}
+          value={password}
+        />
+        <Text style={styles.labelText}>Email</Text>
+        </View>
+        <View>
+        <TextInput
+          style={styles.input}
+          placeholder="********"
+          onChangeText={handleUsernameChange}
+          value={username}
+        />
+         <Text style={styles.labelText}>Password</Text>
+        </View>
+        <TouchableOpacity style={styles.loginButton}>
+          <Text style={styles.loginButtonText}>Sign Up</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#98E0FF',
+  },
+  headerImage: {
+    width: 125,
+    height: 125,
+    marginBottom: 10,
+  },
+  inputContainer: {
+    width: '80%',
+  },
+  inputWrapper: {
+    position: 'relative',
+    marginBottom: 5,
+  },
+  labelText: {
+    fontWeight: 'bold',
+    position: 'absolute',
+    bottom: 5,
+    left: 10,
+    color: 'black',
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 20,
+    paddingLeft: 10,
+    borderRadius: 20, 
+    color:'#969696',
+    backgroundColor:'white',
+  },
+  loginButton: {
+    backgroundColor: '#0059AA',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    shadowColor:"black",
+    shadowOffset:{width:0,height:2},
+    shadowOpacity:0.8,
+    textShadowRadius:4,
+
+  },
+  loginButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  forgotPassword: {
+    textAlign: 'center',
+    color: 'black',
+    textDecorationLine: 'underline',
+    fontWeight: 'bold',
+    fontSize: 10,
+  },
+});

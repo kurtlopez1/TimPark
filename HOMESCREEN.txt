@@ -1,0 +1,61 @@
+import React, { useState } from 'react';
+import { TouchableOpacity, StyleSheet, Text, View, Button, TextInput,  Image } from 'react-native';
+
+
+export default function App({navigation}) {
+  return (
+    <View style={styles.appContainer}>
+      <Image source={require('/assets/TPlogo.png')} style={styles.headerImage} />
+      <View style={styles.buttonContainer}>
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}style={styles.button}>
+        <Text style={styles.buttonText}>Log in</Text>
+        </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Register')}style={styles.button}>
+        <Text style={styles.buttonText}>Sign up</Text>
+      </TouchableOpacity>
+      </View>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  appContainer: {
+    paddingTop: 130,
+    paddingHorizontal: 15,
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: '#98E0FF'
+  },
+  headerImage: {
+    width: 300,
+    height: 300,
+    marginVertical: 20,
+  },
+  buttonContainer: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 295,
+    flex: 1,
+  },
+  button: {
+    width: 250, 
+    height: 40,  
+    backgroundColor: '#0059AA',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10,
+    borderRadius: 20,
+    shadowColor:"black",
+    shadowOffset:{width:0,height:2},
+    shadowOpacity:0.8,
+    textShadowRadius:4,
+
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 15,
+    fontFamily:'Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif',
+    fontWeight:'600',
+  },
+});
